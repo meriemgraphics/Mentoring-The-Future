@@ -1,0 +1,2032 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تحدّي 30 يوم - Mentoring The Future Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Almarai:wght@400;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-orange: #FF8C42;
+            --primary-purple: #7B3FF2;
+            --dark-bg: #1a1a1a;
+            --light-bg: #f8f8f8;
+            --text-dark: #2d2d2d;
+            --text-light: #666;
+            --white: #ffffff;
+            --shadow: 0 4px 15px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 30px rgba(0,0,0,0.15);
+            --shadow-xl: 0 20px 50px rgba(0,0,0,0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cairo', 'Almarai', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--white);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            background: linear-gradient(135deg, var(--primary-orange) 0%, var(--primary-purple) 100%);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            color: var(--white);
+            font-size: 1.5rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+            cursor: pointer;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-orange) 0%, var(--primary-purple) 100%);
+            color: var(--white);
+            padding: 3rem 2rem 4rem;
+            position: relative;
+            overflow: hidden;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+            filter: blur(40px);
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -5%;
+            width: 400px;
+            height: 400px;
+            background: rgba(255,255,255,0.08);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite reverse;
+            filter: blur(40px);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-30px); }
+        }
+
+        .hero-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            text-align: right;
+        }
+
+        .academy-name {
+            font-size: 1rem;
+            opacity: 0.95;
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+            line-height: 1.7;
+            font-weight: 500;
+        }
+
+        .hero-image {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 20px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+            filter: drop-shadow(0 0 40px rgba(255,255,255,0.2));
+        }
+
+        .glow-circle {
+            position: absolute;
+            width: 450px;
+            height: 450px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+            border-radius: 50%;
+            animation: pulse-glow 3s ease-in-out infinite;
+            z-index: -1;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .cta-button {
+            background: var(--white);
+            color: var(--primary-purple);
+            border: none;
+            padding: 1.1rem 3rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-xl);
+            text-decoration: none;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.1);
+            transition: left 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        /* Problems Section */
+        .problems {
+            padding: 3rem 2rem;
+            background-color: var(--light-bg);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            color: var(--primary-purple);
+            margin-bottom: 2rem;
+            text-align: center;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .problems-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .problem-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .problem-icon {
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(135deg, var(--primary-orange), var(--primary-purple));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            flex-shrink: 0;
+            font-weight: bold;
+        }
+
+        .problem-text {
+            font-size: 1rem;
+            color: var(--text-dark);
+            line-height: 1.5;
+        }
+
+        /* What is Challenge */
+        .what-is-challenge {
+            padding: 3rem 2rem;
+            background-color: var(--white);
+        }
+
+        .challenge-section {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .challenge-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .challenge-list {
+            list-style: none;
+        }
+
+        .challenge-list li {
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .check-icon {
+            color: var(--primary-orange);
+            font-weight: bold;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .challenge-description {
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* Benefits Section */
+        .benefits {
+            padding: 3rem 2rem;
+            background: linear-gradient(135deg, #f5f5f5 0%, #fafafa 100%);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .benefit-card {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            border-right: 4px solid var(--primary-orange);
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-right-color: var(--primary-purple);
+        }
+
+        .benefit-card h4 {
+            color: var(--primary-purple);
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .benefit-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* Packages Section */
+        .packages {
+            padding: 3rem 2rem;
+            background-color: var(--white);
+        }
+
+        .packages-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .package-card {
+            background: var(--light-bg);
+            border: 2px solid #e0e0e0;
+            border-radius: 15px;
+            padding: 1.8rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .package-card:hover {
+            border-color: var(--primary-orange);
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-5px);
+        }
+
+        .package-card.featured {
+            border-color: var(--primary-orange);
+            background: linear-gradient(135deg, rgba(255, 140, 66, 0.95) 0%, rgba(123, 63, 242, 0.85) 100%);
+            transform: scale(1.1);
+            box-shadow: 0 20px 60px rgba(255, 140, 66, 0.3);
+        }
+
+        .package-card.featured .package-name,
+        .package-card.featured .package-price,
+        .package-card.featured .package-features li,
+        .package-card.featured .package-btn {
+            color: var(--white);
+        }
+
+        .package-card.featured .package-features li::before {
+            color: var(--white);
+        }
+
+        .package-card.featured .package-btn {
+            background: var(--white);
+            color: var(--primary-purple);
+        }
+
+        .badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary-orange);
+            color: var(--white);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .package-name {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--primary-purple);
+            margin-bottom: 1rem;
+        }
+
+        .package-price {
+            font-size: 2rem;
+            color: var(--primary-orange);
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+        }
+
+        .package-price span {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .package-features {
+            list-style: none;
+            text-align: right;
+            margin-bottom: 1.5rem;
+        }
+
+        .package-features li {
+            padding: 0.5rem 0;
+            color: var(--text-dark);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 0.5rem;
+        }
+
+        .package-features li::before {
+            content: '✓';
+            color: var(--primary-orange);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .package-btn {
+            background: linear-gradient(135deg, var(--primary-orange) 0%, var(--primary-purple) 100%);
+            color: var(--white);
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .package-btn:hover {
+            transform: scale(1.05);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Who is this for */
+        .who-section {
+            padding: 3rem 2rem;
+            background-color: var(--light-bg);
+        }
+
+        .who-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .who-item {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            border-left: 4px solid var(--primary-purple);
+        }
+
+        /* Why Choose Section */
+        .why-choose {
+            padding: 3rem 2rem;
+            background: linear-gradient(135deg, var(--primary-orange) 0%, var(--primary-purple) 100%);
+            color: var(--white);
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .why-item {
+            text-align: center;
+        }
+
+        .why-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .why-item h4 {
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .why-item p {
+            font-size: 0.95rem;
+            opacity: 0.95;
+            line-height: 1.5;
+        }
+
+        /* How to Join */
+        .how-to-join {
+            padding: 3rem 2rem;
+            background-color: var(--white);
+        }
+
+        .steps-container {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .step {
+            text-align: center;
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-orange), var(--primary-purple));
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 1rem;
+        }
+
+        .step h4 {
+            color: var(--primary-purple);
+            margin-bottom: 0.5rem;
+        }
+
+        .step p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Final CTA */
+        .final-cta {
+            padding: 3rem 2rem;
+            background: linear-gradient(135deg, var(--primary-orange) 0%, var(--primary-purple) 100%);
+            text-align: center;
+            color: var(--white);
+        }
+
+        .final-cta h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .final-cta p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .cta-button-large {
+            background: var(--white);
+            color: var(--primary-purple);
+            border: none;
+            padding: 1.2rem 3rem;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-lg);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button-large:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--text-dark);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+        }
+
+        /* Sticky Mobile CTA */
+        .sticky-cta {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, var(--primary-orange) 0%, var(--primary-purple) 100%);
+            padding: 1rem 1.5rem;
+            box-shadow: 0 -5px 20px rgba(0,0,0,0.2);
+            z-index: 999;
+            text-align: center;
+        }
+
+        .sticky-cta button {
+            width: 100%;
+            padding: 0.9rem 1.5rem;
+            background: var(--white);
+            color: var(--primary-purple);
+            border: none;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 3rem 2rem;
+            background-color: var(--light-bg);
+        }
+
+        .testimonials-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            border-top: 4px solid var(--primary-orange);
+            text-align: center;
+        }
+
+        .testimonial-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-5px);
+        }
+
+        .testimonial-card:nth-child(2) {
+            border-top-color: var(--primary-purple);
+        }
+
+        .testimonial-card:nth-child(3) {
+            border-top-color: var(--primary-orange);
+        }
+
+        .stars {
+            color: var(--primary-orange);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            letter-spacing: 3px;
+        }
+
+        .testimonial-text {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            font-weight: 700;
+            color: var(--primary-purple);
+            margin-bottom: 0.3rem;
+        }
+
+        .testimonial-role {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        /* Countdown Timer */
+        .countdown-section {
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--primary-orange) 0%, var(--primary-purple) 100%);
+            border-radius: 15px;
+            text-align: center;
+            margin: 2rem 0;
+            color: var(--white);
+        }
+
+        .countdown-section h3 {
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .countdown-timer {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .time-box {
+            background: rgba(255,255,255,0.2);
+            padding: 1rem;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        .time-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--white);
+        }
+
+        .time-label {
+            font-size: 0.75rem;
+            margin-top: 0.5rem;
+            opacity: 0.9;
+        }
+
+        /* Video Hero */
+        .hero-video {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 20px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            font-size: 0.95rem;
+            opacity: 0.95;
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Seats Counter */
+        .seats-counter {
+            background: rgba(255,140,66,0.15);
+            border: 1px solid var(--primary-orange);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .seats-bar {
+            background: #e0e0e0;
+            height: 30px;
+            border-radius: 15px;
+            overflow: hidden;
+            margin: 1rem 0;
+        }
+
+        .seats-filled {
+            background: linear-gradient(135deg, var(--primary-orange) 0%, var(--primary-purple) 100%);
+            height: 100%;
+            width: 85%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .seats-text {
+            color: var(--primary-orange);
+            font-weight: 800;
+            font-size: 1.1rem;
+        }
+
+        /* Package Toggle */
+        .package-toggle {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .toggle-btn {
+            background: var(--light-bg);
+            color: var(--text-dark);
+            border: 2px solid #e0e0e0;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .toggle-btn.active {
+            background: linear-gradient(135deg, var(--primary-orange) 0%, var(--primary-purple) 100%);
+            color: white;
+            border-color: var(--primary-orange);
+        }
+
+        /* Video Testimonials */
+        .video-testimonials {
+            padding: 3rem 2rem;
+            background-color: var(--white);
+        }
+
+        .video-testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .video-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: var(--shadow-lg);
+            transition: all 0.3s ease;
+        }
+
+        .video-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+        }
+
+        .video-placeholder {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: linear-gradient(135deg, rgba(255,140,66,0.2) 0%, rgba(123,63,242,0.2) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--primary-orange);
+            cursor: pointer;
+            position: relative;
+        }
+
+        .play-button {
+            width: 60px;
+            height: 60px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: var(--shadow-lg);
+            transition: all 0.3s ease;
+        }
+
+        .video-placeholder:hover .play-button {
+            transform: scale(1.2);
+        }
+
+        .video-info {
+            padding: 1.5rem;
+            background: white;
+        }
+
+        .video-name {
+            font-weight: 700;
+            color: var(--primary-purple);
+            margin-bottom: 0.3rem;
+        }
+
+        .video-role {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 3rem 2rem;
+            background-color: var(--light-bg);
+        }
+
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .faq-item {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            box-shadow: var(--shadow-lg);
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            background: var(--light-bg);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--primary-purple);
+            transition: all 0.3s ease;
+            user-select: none;
+        }
+
+        .faq-question:hover {
+            background: rgba(255,140,66,0.1);
+        }
+
+        .faq-toggle {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            padding: 1.5rem;
+            color: var(--text-light);
+            line-height: 1.7;
+            display: none;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Why Choose Icons Animation */
+        .why-item {
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .why-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .why-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+            animation: iconFloat 3s ease-in-out infinite;
+        }
+
+        .why-item:hover .why-icon {
+            transform: scale(1.2);
+            animation: none;
+        }
+
+        @keyframes iconFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Sticky Mobile CTA Enhanced */
+        .sticky-cta button {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            background: linear-gradient(135deg, var(--primary-orange) 0%, var(--primary-purple) 100%);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-weight: 800;
+            font-size: 1.1rem;
+            cursor: pointer;
+            box-shadow: var(--shadow-lg);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* QR Code */
+        .qr-code {
+            width: 120px;
+            height: 120px;
+            background: white;
+            padding: 8px;
+            border-radius: 10px;
+            margin: 1rem auto;
+        }
+
+        /* Footer Map */
+        .footer-map {
+            width: 100%;
+            height: 200px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+
+        /* Responsive */
+
+        .time-label {
+            font-size: 0.75rem;
+            margin-top: 0.5rem;
+            opacity: 0.9;
+        }
+
+        /* Video Hero */
+        .hero-video {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 20px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            font-size: 0.95rem;
+            opacity: 0.95;
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Seats Counter */
+        .seats-counter {
+            background: rgba(255,140,66,0.15);
+            border: 1px solid var(--primary-orange);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .seats-bar {
+            background: #e0e0e0;
+            height: 30px;
+            border-radius: 15px;
+            overflow: hidden;
+            margin: 1rem 0;
+        }
+
+        .seats-filled {
+            background: linear-gradient(135deg, var(--primary-orange) 0%, var(--primary-purple) 100%);
+            height: 100%;
+            width: 85%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .seats-text {
+            color: var(--primary-orange);
+            font-weight: 800;
+            font-size: 1.1rem;
+        }
+
+        /* Package Toggle */
+        .package-toggle {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .toggle-btn {
+            background: var(--light-bg);
+            color: var(--text-dark);
+            border: 2px solid #e0e0e0;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .toggle-btn.active {
+            background: linear-gradient(135deg, var(--primary-orange) 0%, var(--primary-purple) 100%);
+            color: white;
+            border-color: var(--primary-orange);
+        }
+
+        /* Video Testimonials */
+        .video-testimonials {
+            padding: 3rem 2rem;
+            background-color: var(--white);
+        }
+
+        .video-testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .video-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: var(--shadow-lg);
+            transition: all 0.3s ease;
+        }
+
+        .video-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+        }
+
+        .video-placeholder {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: linear-gradient(135deg, rgba(255,140,66,0.2) 0%, rgba(123,63,242,0.2) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--primary-orange);
+            cursor: pointer;
+            position: relative;
+        }
+
+        .play-button {
+            width: 60px;
+            height: 60px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: var(--shadow-lg);
+            transition: all 0.3s ease;
+        }
+
+        .video-placeholder:hover .play-button {
+            transform: scale(1.2);
+        }
+
+        .video-info {
+            padding: 1.5rem;
+            background: white;
+        }
+
+        .video-name {
+            font-weight: 700;
+            color: var(--primary-purple);
+            margin-bottom: 0.3rem;
+        }
+
+        .video-role {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 3rem 2rem;
+            background-color: var(--light-bg);
+        }
+
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .faq-item {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            box-shadow: var(--shadow-lg);
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            background: var(--light-bg);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--primary-purple);
+            transition: all 0.3s ease;
+            user-select: none;
+        }
+
+        .faq-question:hover {
+            background: rgba(255,140,66,0.1);
+        }
+
+        .faq-toggle {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            padding: 1.5rem;
+            color: var(--text-light);
+            line-height: 1.7;
+            display: none;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Why Choose Icons Animation */
+        .why-item {
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .why-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .why-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+            animation: iconFloat 3s ease-in-out infinite;
+        }
+
+        .why-item:hover .why-icon {
+            transform: scale(1.2);
+            animation: none;
+        }
+
+        @keyframes iconFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Sticky Mobile CTA Enhanced */
+        .sticky-cta button {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            background: linear-gradient(135deg, var(--primary-orange) 0%, var(--primary-purple) 100%);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-weight: 800;
+            font-size: 1.1rem;
+            cursor: pointer;
+            box-shadow: var(--shadow-lg);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* QR Code */
+        .qr-code {
+            width: 120px;
+            height: 120px;
+            background: white;
+            padding: 8px;
+            border-radius: 10px;
+            margin: 1rem auto;
+        }
+
+        /* Footer Map */
+        .footer-map {
+            width: 100%;
+            height: 200px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-wrapper {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-content {
+                text-align: center;
+            }
+
+            .hero-image img {
+                max-width: 300px;
+            }
+
+            .sticky-cta {
+                display: block;
+            }
+
+            body {
+                padding-bottom: 80px;
+            }
+
+            .problems-grid,
+            .challenge-content,
+            .benefits-grid,
+            .why-grid,
+            .steps-container,
+            .who-grid,
+            .packages-grid,
+            .testimonials-grid,
+            .countdown-timer {
+                grid-template-columns: 1fr;
+            }
+
+            .package-card.featured {
+                transform: scale(1);
+            }
+
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">🔶 Mentoring The Future</div>
+        <ul class="nav-links">
+            <li><a onclick="scrollToSection('problems')">المشاكل</a></li>
+            <li><a onclick="scrollToSection('packages')">الباقات</a></li>
+            <li><a onclick="scrollToSection('why')">لماذا نحن</a></li>
+            <li><a onclick="scrollToSection('contact')">تسجيل</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-wrapper">
+            <div class="hero-content">
+                <div class="academy-name">🏆 أكاديميّة Mentoring The Future</div>
+                <h1>تحدّي 30 يوم لتطوير التحدّث بالإنجليزية</h1>
+                <p>أطلقنا أقوى تحدّي لتعلم التحدّث بالإنجليزية بثقة في 30 يوم فقط!</p>
+                <button class="cta-button" onclick="scrollToSection('packages')">سجّل الآن وابدأ التحدّي</button>
+            </div>
+            <div class="hero-image">
+                <div class="glow-circle"></div>
+                <div style="position: relative;">
+                    <div class="hero-badge" style="position: absolute; top: 20px; right: 20px; z-index: 10;">🆕 January Edition</div>
+                    <img src="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/a317f30e-84cb-4376-8967-e3e5eda0f40b" alt="Mentoring The Future Academy" style="max-width: 100%; border-radius: 20px; filter: drop-shadow(0 0 30px rgba(255,140,66,0.4));">
+                </div>
+                <div class="hero-stats" style="flex-direction: column; gap: 1rem; margin-top: 2rem; padding: 1.5rem; background: rgba(255,255,255,0.15); border-radius: 15px; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2);">
+                    <div class="stat-item" style="justify-content: center; font-size: 1.1rem; font-weight: 700; gap: 0.8rem;">
+                        <span style="font-size: 1.5rem;">✨</span>
+                        <span>تحدّي عملي – أماكن محدودة</span>
+                    </div>
+                    <div style="height: 1px; background: rgba(255,255,255,0.2); width: 100%;"></div>
+                    <div class="stat-item" style="justify-content: center; font-size: 1.1rem; font-weight: 700; gap: 0.8rem;">
+                        <span style="font-size: 1.5rem;">👥</span>
+                        <span>+120 شاركوا من قبل</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problems Section -->
+    <section class="problems" id="problems">
+        <div class="container">
+            <h2 class="section-title">هل تعاني من أحد هذه المشاكل؟</h2>
+            <div class="problems-grid">
+                <div class="problem-item">
+                    <div class="problem-icon">✓</div>
+                    <div class="problem-text">تخجل كي تتحدّث بالإنجليزية في الأماكن العامة</div>
+                </div>
+                <div class="problem-item">
+                    <div class="problem-icon">✓</div>
+                    <div class="problem-text">تتلبّك وما تعرفش ترد في المقابلة</div>
+                </div>
+                <div class="problem-item">
+                    <div class="problem-icon">✓</div>
+                    <div class="problem-text">تفهم الإنجليزية لكن ما تقدرش تهدّر</div>
+                </div>
+                <div class="problem-item">
+                    <div class="problem-icon">✓</div>
+                    <div class="problem-text">حاب تزيد ثقتك في الكلام والنطق</div>
+                </div>
+            </div>
+            <p style="text-align: center; font-size: 1.1rem; color: var(--primary-purple); font-weight: bold;">
+                ✨ هذا التحدّي معمــول خصيصاً ليك!
+            </p>
+        </div>
+    </section>
+
+    <!-- What is Challenge -->
+    <section class="what-is-challenge">
+        <div class="challenge-section">
+            <h2 class="section-title">ما هو تحدّي 30 يوم؟</h2>
+            <div class="challenge-content">
+                <ul class="challenge-list">
+                    <li>
+                        <span class="check-icon">📌</span>
+                        <div>
+                            <strong>جلسة كل يومين مع المدربة (2-3 ساعات)</strong>
+                            <p class="challenge-description">محادثة حقيقية، نطق، Listening، Acting Situations</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="check-icon">📌</span>
+                        <div>
+                            <strong>مهام يومية في المنزل</strong>
+                            <p class="challenge-description">تمارين صوتية + فيديوهات + Reading + Speaking assignments</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="check-icon">📌</span>
+                        <div>
+                            <strong>متابعة شخصية وتصحيح نطق</strong>
+                            <p class="challenge-description">تصحيح صوتي، ملاحظات، ونصائح مكتوبة</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="check-icon">📌</span>
+                        <div>
+                            <strong>تدريب على مواقف حقيقية</strong>
+                            <p class="challenge-description">المطار • الطبيب • المقابلة • الامتحان • الحوار اليومي • المطعم • العمل</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="check-icon">📌</span>
+                        <div>
+                            <strong>بناء الثقة خطوة بخطوة</strong>
+                            <p class="challenge-description">كيف توقف الترجمة في راسك وتطلق لسانك بدون خوف</p>
+                        </div>
+                    </li>
+                </ul>
+                <div style="background: linear-gradient(135deg, var(--primary-orange) 0%, var(--primary-purple) 100%); border-radius: 15px; padding: 2rem; color: white; text-align: center;">
+                    <h3 style="margin-bottom: 1rem; font-size: 1.5rem;">هذا التحدّي ليس نظري…</h3>
+                    <p style="font-size: 1.3rem; font-weight: bold;">بل عملي 100%</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Countdown Timer -->
+    <section class="countdown-section" style="margin: 3rem 2rem; max-width: 900px; margin-right: auto; margin-left: auto;">
+        <h3>⏰ العرض ينتهي قريباً!</h3>
+        <div class="countdown-timer">
+            <div class="time-box">
+                <div class="time-number" id="days">30</div>
+                <div class="time-label">أيام</div>
+            </div>
+            <div class="time-box">
+                <div class="time-number" id="hours">12</div>
+                <div class="time-label">ساعات</div>
+            </div>
+            <div class="time-box">
+                <div class="time-number" id="minutes">45</div>
+                <div class="time-label">دقائق</div>
+            </div>
+            <div class="time-box">
+                <div class="time-number" id="seconds">32</div>
+                <div class="time-label">ثوانٍ</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits">
+        <div class="container">
+            <h2 class="section-title">ماذا ستربح بعد 30 يوم؟</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <h4>💬 تهدّر بثقة أكثر</h4>
+                    <p>تستطيع التحدث مع الآخرين بدون خوف أو قلق</p>
+                </div>
+                <div class="benefit-card">
+                    <h4>🧠 توقّف الترجمة الذهنية</h4>
+                    <p>تتحدث مباشرة بالإنجليزية بدون ترجمة</p>
+                </div>
+                <div class="benefit-card">
+                    <h4>⚡ تردّ بسرعة وعفوية</h4>
+                    <p>تقدر ترد على الأسئلة بسرعة وطبيعية</p>
+                </div>
+                <div class="benefit-card">
+                    <h4>👂 تفهم المتحدثين الأصليين أكثر</h4>
+                    <p>تحسّن مهارة الاستماع والفهم</p>
+                </div>
+                <div class="benefit-card">
+                    <h4>🎯 نطق أفضل ومخارج صحيحة</h4>
+                    <p>تحسّن نطقك ومخارج الحروف بشكل واضح</p>
+                </div>
+                <div class="benefit-card">
+                    <h4>🚀 استعمل الإنجليزية في مواقف حقيقية</h4>
+                    <p>تطبيق عملي مباشر في حياتك اليومية</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section class="packages" id="packages">
+        <div class="packages-container">
+            <h2 class="section-title">✨ الباقات المتاحة</h2>
+            <p style="text-align: center; color: var(--text-light); margin-bottom: 2rem; font-size: 1.1rem;">اختر الباقة المناسبة لك والبدء اليوم</p>
+            <div class="seats-counter">
+                <div style="font-weight: 700; color: var(--primary-orange); margin-bottom: 0.5rem;">🔥 الأماكن المتبقية</div>
+                <div class="seats-bar">
+                    <div class="seats-filled">7 من 10 مشترك</div>
+                </div>
+                <div class="seats-text">باقي 3 مقاعد فقط قبل الامتلاء!</div>
+            </div>
+            <div class="package-toggle">
+                <button class="toggle-btn active" onclick="togglePackage('30')">تحدّي 30 يوم</button>
+                <button class="toggle-btn" onclick="togglePackage('60')">تحدّي 60 يوم (قريباً)</button>
+            </div>
+            <div class="packages-grid">
+                <!-- BASIC -->
+                <div class="package-card">
+                    <h3 class="package-name">BASIC 🎯</h3>
+                    <div class="package-price">12,000 <span>دج</span></div>
+                    <ul class="package-features">
+                        <li>المشاركة في جميع الجلسات</li>
+                        <li>المهام اليومية</li>
+                        <li>مجموعة دعم</li>
+                    </ul>
+                    <button class="package-btn" onclick="handleCTA()">اختر الباقة</button>
+                </div>
+
+                <!-- STANDARD - Featured -->
+                <div class="package-card featured">
+                    <div class="badge">🏆 الأفضل والأكثر اختياراً</div>
+                    <h3 class="package-name">STANDARD ⭐</h3>
+                    <div class="package-price">18,000 <span>دج</span></div>
+                    <ul class="package-features">
+                        <li>✅ كل ما في BASIC</li>
+                        <li>✅ تصحيح نطق كل ثلاثة أيام</li>
+                        <li>✅ تقييم مستوى</li>
+                        <li>✅ متابعة شخصية</li>
+                    </ul>
+                    <button class="package-btn" onclick="handleCTA()" style="background: var(--white); color: var(--primary-purple); font-weight: 800;">اختر الباقة الآن</button>
+                </div>
+
+                <!-- PLUS -->
+                <div class="package-card">
+                    <h3 class="package-name">PLUS 🚀</h3>
+                    <div class="package-price">24,000 <span>دج</span></div>
+                    <ul class="package-features">
+                        <li>كل ما في STANDARD</li>
+                        <li>جلسة إضافية أسبوعية</li>
+                        <li>ملفات PDF متقدمة</li>
+                        <li>دعم صوتي يومي</li>
+                    </ul>
+                    <button class="package-btn" onclick="handleCTA()">اختر الباقة</button>
+                </div>
+
+                <!-- VIP -->
+                <div class="package-card">
+                    <h3 class="package-name">VIP 👑</h3>
+                    <div class="package-price">35,000 <span>دج</span></div>
+                    <ul class="package-features">
+                        <li>كل ما في PLUS</li>
+                        <li>متابعة 1-on-1 أسبوعية</li>
+                        <li>خطة نطق شخصية</li>
+                        <li>ضمان النتيجة ✓</li>
+                    </ul>
+                    <button class="package-btn" onclick="handleCTA()">اختر الباقة</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="testimonials-container">
+            <h2 class="section-title">💬 تقييمات الطلاب</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"أنا كنت خائفة من الكلام بالإنجليزية، لكن بعد التحدّي، توقّفت عن الترجمة في راسي وصرت أتكلم بثقة! شكراً للمدربة على صبرها."</p>
+                    <div class="testimonial-author">فاطمة سعيد</div>
+                    <div class="testimonial-role">خريجة برنامج STANDARD</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"التحدّي كان عملي جداً! تعلّمت كيفاش أتفاعل في مواقف حقيقية. دخلت المقابلة وقدرت أتكلم بدون خوف. شكراً!"</p>
+                    <div class="testimonial-author">أحمد كريم</div>
+                    <div class="testimonial-role">خريج برنامج PLUS</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"النتيجة كانت فعلاً مذهلة في 30 يوم فقط. صوتي تحسّن، نطقي أصبح أوضح، والثقة زادت كتير. أنصح الكل يسجّلوا!"</p>
+                    <div class="testimonial-author">ليندا عمر</div>
+                    <div class="testimonial-role">خريجة برنامج VIP</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who is This For -->
+    <section class="who-section" id="who">
+        <div class="container">
+            <h2 class="section-title">لمن هذا التحدّي؟</h2>
+            <div class="who-grid">
+                <div class="who-item">
+                    <h4 style="color: var(--primary-purple); margin-bottom: 0.5rem;">🎯 تفهم الإنجليزية لكن ما تهدرش</h4>
+                    <p>إذا كنت من الأشخاص الذين يفهمون الإنجليزية جيداً لكن يصعب عليهم التحدث</p>
+                </div>
+                <div class="who-item">
+                    <h4 style="color: var(--primary-purple); margin-bottom: 0.5rem;">😰 عندك خوف أو تردّد</h4>
+                    <p>إذا كان لديك خوف أو خجل من التحدث أمام الآخرين</p>
+                </div>
+                <div class="who-item">
+                    <h4 style="color: var(--primary-purple); margin-bottom: 0.5rem;">💼 تطوّر روحك في الشغل والجامعة</h4>
+                    <p>إذا كنت تريد تحسين فرصك الوظيفية والدراسية</p>
+                </div>
+                <div class="who-item">
+                    <h4 style="color: var(--primary-purple); margin-bottom: 0.5rem;">🎤 عندك امتحان أو مقابلة قريبة</h4>
+                    <p>إذا كنت تحضّر لامتحان IELTS أو مقابلة عمل</p>
+                </div>
+                <div class="who-item">
+                    <h4 style="color: var(--primary-purple); margin-bottom: 0.5rem;">🚀 حاب تبدأ من هسع</h4>
+                    <p>إذا كنت مستعداً لتغيير حياتك وتطوير نفسك</p>
+                </div>
+                <div class="who-item">
+                    <h4 style="color: var(--primary-purple); margin-bottom: 0.5rem;">✨ تبحث عن نظام عملي حقيقي</h4>
+                    <p>إذا مللت من الدورات النظرية والدراسة الممله</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="why-choose" id="why">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">لماذا تختار Mentoring The Future؟</h2>
+            <div class="why-grid">
+                <div class="why-item">
+                    <div class="why-icon">👨‍🏫</div>
+                    <h4>مدربة محترفة</h4>
+                    <p>خبرة حقيقية في تعليم التحدث بالإنجليزية</p>
+                </div>
+                <div class="why-item">
+                    <div class="why-icon">🎓</div>
+                    <h4>بيئة آمنة وممتعة</h4>
+                    <p>تعلم بدون خوف وفي جو مريح وودي</p>
+                </div>
+                <div class="why-item">
+                    <div class="why-icon">📱</div>
+                    <h4>متابعة حقيقية</h4>
+                    <p>تصحيح مستمر ونصائح شخصية يومية</p>
+                </div>
+                <div class="why-item">
+                    <div class="why-icon">⚙️</div>
+                    <h4>نظام عملي 100%</h4>
+                    <p>لا نظري ممل، بل تطبيق عملي مباشر</p>
+                </div>
+                <div class="why-item">
+                    <div class="why-icon">🎬</div>
+                    <h4>مواقف حقيقية</h4>
+                    <p>تمارين على مواقف تعيشها في حياتك</p>
+                </div>
+                <div class="why-item">
+                    <div class="why-icon">✅</div>
+                    <h4>نتائج مضمونة</h4>
+                    <p>للملتزمين، تحسن واضح وملموس</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="faq-container">
+            <h2 class="section-title">❓ الأسئلة الشائعة</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>هل أحتاج إلى مستوى معين في اللغة الإنجليزية؟</span>
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">لا! التحدّي مفتوح للجميع من المستوى الأساسي إلى المتقدم. المدربة ستركز على احتياجاتك الشخصية.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>كم المدة الفعلية للجلسات؟</span>
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">جلسات من 2-3 ساعات كل يومين، مع مهام يومية بسيطة (30-45 دقيقة يومياً).</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>هل يمكنني الدفع بطريقة أخرى غير الحوالة؟</span>
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">نعم! يمكنك التواصل معنا عبر الواتس لمناقشة طرق الدفع المتاحة.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>ماذا لو لم أحقق النتائج المطلوبة؟</span>
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">في باقة VIP، لديك ضمان النتيجة. إذا التزمت بالكامل، ستشعر بتحسن واضح بنسبة 100%.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>هل الجلسات متزامنة أم مسجلة؟</span>
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">جلسات حية ومباشرة! التفاعل الفوري هو مفتاح النجاح. لكن ستحصل على تسجيلات للمراجعة.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>هل هناك شهادة بعد الانتهاء من التحدّي؟</span>
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">نعم! ستحصل على شهادة معتمدة تثبت إكمالك لتحدّي 30 يوم مع تقييم مستويك.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>هل يمكنني البدء في أي وقت؟</span>
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">الأماكن محدودة! تواصل معنا الآن لحجز مكانك. كل دفعة تبدأ في موعد محدد.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Join -->
+    <section class="how-to-join" id="how">
+        <div class="container">
+            <h2 class="section-title">🚀 كيف تشارك في التحدّي؟</h2>
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-number">📱</div>
+                    <h4>الخطوة 1: تواصل معنا</h4>
+                    <p>اكتب لنا رسالة على الواتس أو الفيسبوك أو إرسال DM</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">💬</div>
+                    <h4>الخطوة 2: قول "أنا معكم"</h4>
+                    <p>أخبرنا أنك مستعد للتحدّي والالتزام الكامل</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">✅</div>
+                    <h4>الخطوة 3: احجز مقعدك</h4>
+                    <p>نبعثولك تفاصيل الدفع وتبدأ التحدّي مباشرة</p>
+                </div>
+            </div>
+            <p style="text-align: center; margin-top: 2rem; color: var(--primary-orange); font-size: 1.15rem; font-weight: 800;">
+                ⏰ الأماكن محدودة جداً جداً! باقي 2 مقاعد فقط قبل الامتلاء!
+            </p>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta" id="contact">
+        <h2>استعد لتحوّل حياتك</h2>
+        <p>الآن هو الوقت المناسب لبدء رحلتك في تعلم التحدث بالإنجليزية بثقة!</p>
+        <button class="cta-button-large" onclick="handleCTA()">سجّل الآن في تحدّي 30 يوم</button>
+    </section>
+
+    <!-- Sticky Mobile CTA -->
+    <div class="sticky-cta">
+        <button onclick="handleCTA()">سجّل الآن - بداية التحدّي اليوم 🚀</button>
+    </div>
+
+    <!-- Footer -->
+    <footer style="background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%); padding: 3rem 2rem;">
+        <div style="text-align: center; margin-bottom: 1.5rem;">
+            <img src="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/a317f30e-84cb-4376-8967-e3e5eda0f40b" alt="Mentoring The Future Logo" style="height: 50px; margin-bottom: 1rem; border-radius: 8px;">
+        </div>
+        <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 2rem; color: #aaa;">
+            <div>
+                <h4 style="color: var(--primary-orange); margin-bottom: 1rem; font-size: 1.2rem;">📞 تواصل معنا</h4>
+                <p style="margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.8rem;">
+                    <a href="https://wa.me/0550033870" target="_blank" style="color: var(--primary-orange); text-decoration: none; font-size: 1.5rem; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">💬</a>
+                    <strong>WhatsApp:</strong> <a href="https://wa.me/0550033870" style="color: var(--primary-orange); text-decoration: none;">0550033870</a>
+                </p>
+                <p style="margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.8rem;">
+                    <a href="tel:0550033870" style="color: var(--primary-orange); text-decoration: none; font-size: 1.5rem; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">☎️</a>
+                    <strong>الهاتف:</strong> <a href="tel:0550033870" style="color: var(--primary-orange); text-decoration: none;">0550033870</a>
+                </p>
+                <p style="margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.8rem;">
+                    <a href="https://www.facebook.com/profile.php?id=100093171617376&locale=fr_FR" target="_blank" style="color: var(--primary-orange); text-decoration: none; font-size: 1.5rem; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">📘</a>
+                    <strong>فيسبوك:</strong> <a href="https://www.facebook.com/profile.php?id=100093171617376&locale=fr_FR" target="_blank" style="color: var(--primary-orange); text-decoration: none;">Mentoring The Future</a>
+                </p>
+                <p style="margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.8rem;">
+                    <a href="https://instagram.com/mentoringthefuture" target="_blank" style="color: var(--primary-orange); text-decoration: none; font-size: 1.5rem; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">📷</a>
+                    <strong>إنستغرام:</strong> <a href="https://instagram.com/mentoringthefuture" target="_blank" style="color: var(--primary-orange); text-decoration: none;">@mentoringthefuture</a>
+                </p>
+                <p style="margin-bottom: 0.5rem;">📧 <strong>البريد:</strong> info@mentoringthefuture.com</p>
+                <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-light);"><strong>ساعات العمل:</strong> السبت-الخميس، 9:00 ص - 8:00 م</p>
+            </div>
+            <div>
+                <h4 style="color: var(--primary-purple); margin-bottom: 1rem; font-size: 1.2rem;">🏫 عن الأكاديميّة</h4>
+                <p style="line-height: 1.7;">أكاديميّة متخصّصة في تعليم اللغة الإنجليزية بطريقة عملية وفعّالة. هدفنا مساعدتك على التحدّث بثقة وسهولة.</p>
+                <div style="margin-top: 1rem; padding: 1rem; background: rgba(255,140,66,0.1); border-radius: 10px; text-align: center;">
+                    <p style="font-size: 0.85rem; color: var(--primary-orange); margin-bottom: 0.5rem; font-weight: 700;">QR Code للواتس</p>
+                    <div class="qr-code" style="background: white; display: inline-block;">
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="100" height="100" fill="white"/>
+                            <rect x="5" y="5" width="30" height="30" fill="black"/>
+                            <rect x="65" y="5" width="30" height="30" fill="black"/>
+                            <rect x="5" y="65" width="30" height="30" fill="black"/>
+                            <rect x="35" y="35" width="30" height="30" fill="black" opacity="0.5"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h4 style="color: var(--primary-orange); margin-bottom: 1rem; font-size: 1.2rem;">📍 موقعنا</h4>
+                <div class="footer-map" style="background: linear-gradient(135deg, rgba(255,140,66,0.2) 0%, rgba(123,63,242,0.2) 100%); display: flex; align-items: center; justify-content: center; color: var(--primary-orange); font-weight: 700;">
+                    📍 الجزائر
+                </div>
+                <h4 style="color: var(--primary-orange); margin-bottom: 1rem; font-size: 1.2rem;">🔗 المتابعة</h4>
+                <p style="margin-bottom: 0.5rem;"><a href="#" style="color: var(--primary-purple); text-decoration: none; transition: all 0.3s ease;" onmouseover="this.style.color='var(--primary-orange)'" onmouseout="this.style.color='var(--primary-purple)'">🌐 زيارة الموقع</a></p>
+                <p style="margin-bottom: 0.5rem;"><a href="https://www.facebook.com/profile.php?id=100093171617376&locale=fr_FR" target="_blank" style="color: var(--primary-purple); text-decoration: none; transition: all 0.3s ease;" onmouseover="this.style.color='var(--primary-orange)'" onmouseout="this.style.color='var(--primary-purple)'">📘 فيسبوك</a></p>
+                <p style="margin-bottom: 0.5rem;"><a href="https://instagram.com/mentoringthefuture" target="_blank" style="color: var(--primary-purple); text-decoration: none; transition: all 0.3s ease;" onmouseover="this.style.color='var(--primary-orange)'" onmouseout="this.style.color='var(--primary-purple)'">📷 إنستغرام</a></p>
+            </div>
+        </div>
+        <hr style="border: none; border-top: 1px solid rgba(255,140,66,0.3); margin-bottom: 1.5rem;">
+        <p style="text-align: center; color: #888;">&copy; 2024 <span style="color: var(--primary-orange); font-weight: bold;">Mentoring The Future Academy</span> | جميع الحقوق محفوظة</p>
+        <p style="text-align: center; color: #888; font-size: 0.9rem;">🚀 تحدّي 30 يوم لتطوير التحدّث بالإنجليزية - احجز الآن وغيّر حياتك</p>
+    </footer>
+
+    <script>
+        function scrollToSection(id) {
+            const element = document.getElementById(id);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        function handleCTA() {
+            const whatsappNumber = "213550033870";
+            const message = encodeURIComponent("مرحباً! أنا مهتم بالتسجيل في تحدّي 30 يوم لتطوير التحدّث بالإنجليزية. أرجو أن تساعدوني في حجز مقعد. شكراً!");
+            window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
+        }
+
+        // Countdown Timer
+        function startCountdown() {
+            function updateCountdown() {
+                const targetDate = new Date().getTime() + (10 * 24 * 60 * 60 * 1000); // 10 days from now
+                
+                const countdownInterval = setInterval(function() {
+                    const now = new Date().getTime();
+                    const distance = targetDate - now;
+                    
+                    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                    
+                    document.getElementById('days').textContent = days;
+                    document.getElementById('hours').textContent = hours;
+                    document.getElementById('minutes').textContent = minutes;
+                    document.getElementById('seconds').textContent = seconds;
+                    
+                    if (distance < 0) {
+                        clearInterval(countdownInterval);
+                        document.getElementById('days').textContent = '0';
+                        document.getElementById('hours').textContent = '0';
+                        document.getElementById('minutes').textContent = '0';
+                        document.getElementById('seconds').textContent = '0';
+                    }
+                }, 1000);
+            }
+            updateCountdown();
+        }
+
+        // Smooth scroll for all anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Toggle Package Duration
+        function togglePackage(duration) {
+            const buttons = document.querySelectorAll('.toggle-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            if (duration === '60') {
+                alert('تحدّي 60 يوم قريباً جداً! تابعنا للإعلان');
+            }
+        }
+
+        // FAQ Toggle
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', function() {
+                const faqItem = this.parentElement;
+                faqItem.classList.toggle('active');
+            });
+        });
+
+        // Start countdown on page load
+        window.addEventListener('load', startCountdown);
+    </script>
+</body>
+</html>
